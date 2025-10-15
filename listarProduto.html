@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Produtos</title>
+    <style>
+        table {
+            width: 70%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #aaa;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #ddd;
+        }
+        tr:nth-child(even) {
+            background-color: #f5f5f5;
+        }
+        h1 {
+            font-family: Arial, sans-serif;
+        }
+        a {
+            margin-top: 20px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lista de Produtos</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Preço</th>
+                <th>Quantidade</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="produto : ${produtos}">
+                <td th:text="${produto.id}">1</td>
+                <td th:text="${produto.nome}">Nome do Produto</td>
+                <td th:text="${produto.descricao}">Descrição</td>
+                <td th:text="${produto.preco}">0.00</td>
+                <td th:text="${produto.quantidade}">0</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br>
+    <a href="/produto">Cadastrar novo produto</a>
+</body>
+</html>
